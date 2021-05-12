@@ -133,3 +133,201 @@ console.log(result);
 
 
  //map function
+
+ const number1=[1,2,2,2,3,3,4,4,5,5,6,8,10,20,30,40,50]
+ const name=['Tamim','Sakib','Mash','Sayem','Musta']
+ const object=[
+  {name:'Humayun Ahmed',availableBooks:30},
+  {name:'Humayun Azad',availableBooks:10},
+  {name:'Robi Boss',availableBooks:130}
+ ]
+
+ /*===============Map with Arrow function====================*/
+
+ const newNumber=number1.map( x=>{
+  return x*2;
+ })
+
+ console.log(newNumber);
+
+ const uppercase=name.map(name_string=>{
+   return   name_string.toUpperCase()
+ })
+
+
+console.log(uppercase);
+
+ const newObject=object.map(item=>{
+ return   item.name+''+' Available Books '+item.availableBooks
+ })
+
+ console.log(newObject);
+
+ /*===============Find and Filter====================*/
+
+ const students=[
+  {name:'Humayun Ahmed',marks:35,subject:'MATH'},
+  {name:'Humayun Azad',marks:32,subject:'English'},
+  {name:'Robi Boss',marks:45,subject:'English'},
+  {name:'Sunil Boss',marks:30,subject:'BANGLA'},
+  {name:'Messi ',marks:40,subject:'English'},
+  {name:'CR7',marks:55,subject:'BANGLA'},
+ ]
+
+ const studentMark=students.find(mark=>{
+
+  return  mark.marks >35
+     })
+ console.log("Find :");
+ console.log(studentMark);
+
+ const filter_studentMarks= students.filter(mar=>{
+   return mar.marks>35;
+ })
+
+ console.log('Filter: ', filter_studentMarks);
+
+const noDuplicate= number1.filter((num,index,arr)=>{
+ return  arr.indexOf(num)===index;
+ })
+
+ console.log(noDuplicate);
+
+// ====================Every and Some Method ====================
+
+ const lessThan_tweenty=number1.every((num)=>{
+  return  num<30
+ })
+ console.log(lessThan_tweenty);
+
+const some_function=number1.some((num)=>{
+  return  num<30
+ })
+ console.log(some_function);
+
+
+
+
+ //====================== Array Reduce =====================
+
+ const reduce=number1.reduce((prev,current,currentIndex,arr)=>{
+  return prev+ current
+ },0)
+
+ console.log('Reduce '+reduce);
+
+ const max_number=number1.reduce((prev,curr,currentIndex,array)=>Math.max(prev,curr))
+ const min_number=number1.reduce((prev,curr,currentIndex,array)=>
+     Math.min(prev,curr))
+
+ console.log('Maximum '+max_number,' Minimum Number '+min_number)
+
+ const product=[
+  {
+   name:'book',
+   amount:5,
+   price:10
+  },  {
+   name:'Pen',
+   amount:5,
+   price:10
+  },
+  {
+   name:'Watch',
+   amount:5,
+   price:5
+  },
+ ]
+
+ const totalTk=product.reduce((acc,currentvalue)=>{
+      return acc+ currentvalue.amount * currentvalue.price
+     },0
+ )
+console.log('Total tk ',totalTk);
+
+ const Prize=[
+  {
+   name:'sayem',
+   prize:'No'
+  },
+  {
+   name:'sayem',
+   prize:'yes'
+  },
+  {
+   name:'Karim',
+   prize:'yes'
+  },
+  {
+   name:'Karim',
+   prize:'No'
+  },
+  {
+   name:'Rahim',
+   prize: 'yes'
+  }
+
+ ]
+ const counting_instance_of_value =Prize.reduce((accumulator,item)=>{
+
+   accumulator[item.name] =accumulator[item.name]  || []
+   accumulator[item.name].push(item)
+
+
+  // if (accumulator[item.name] ){
+  //  //(accumulator[item.name])++
+  //  (accumulator[item.name])++
+  // }
+  //
+  // else {
+  //
+  //   accumulator[item.name]=1
+  // }
+
+    // accumulator[item.prize]=[]||[];
+    //
+    // accumulator[item.prize].push(item)
+
+
+return accumulator;
+
+  //console.log(accumulator);
+
+ },{})
+
+ console.log(counting_instance_of_value);
+
+
+ var cars = [{ make: 'audi', model: 'r8', year: '2012' },
+      { make: 'audi', model: 'rs5', year: '2013' },
+      { make: 'ford', model: 'mustang', year: '2012' },
+      { make: 'ford', model: 'fusion', year: '2015' },
+      { make: 'kia', model: 'optima', year: '2012' }],
+     result = cars.reduce(function (r, a) {
+
+       r[a.make] = r[a.make] || [] ;
+       r[a.make].push(a);
+
+      return r;
+     }, Object.create(null));
+
+ console.log(result);
+
+
+ //======================Spread operator=====================
+
+ var  spread_operator=[...number1,100]
+
+ console.log('Spread operator :'+ spread_operator);
+
+
+ //======================Rest operator=====================
+
+ var cars=((a,...params)=>{
+
+ return params
+
+ })
+ console.log(cars(1,22,3,4,))
+
+
