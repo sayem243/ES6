@@ -331,3 +331,75 @@ return accumulator;
  console.log(cars(1,22,3,4,))
 
 
+ //======================Destructuring =====================
+ const user ={
+  name2:'Md',
+  id:2212,
+  education:{
+   degree:'Masters',
+   degree2:'CSE'
+  }
+ }
+
+ const { name2:title } = user; //title hocche Alias
+
+ console.log(title);
+
+ const {education :{degree2:bachelorDegree}}=user
+ console.log(bachelorDegree);
+
+
+ var num=[11,23,123,4,24,1334]
+
+ var[,,,a,b]=num;
+ console.log('Array Destructuring '+ a,b);
+
+ //swap
+
+ var aa=15;
+ var bb=11
+var [bb,aa]=[aa,bb]
+console.log('SWAP '+aa,bb);
+
+// import and export
+
+//import {pen as p,pi} from './external.js'; //one way
+
+ import * as test from './external.js'; //one way
+
+console.log('             /n')
+console.log("Pen :", test.pen);
+
+// =====================Template Literal====================
+
+ var sami = 10;
+ var sufiya =20;
+
+ console.log(`sami's age is ${sami} and sufiya's age is ${sufiya}`);
+
+
+console.log('     ');
+// ====================Tagged Template Literal==================
+
+ var player1="sakib"
+ var player2="Tamim"
+
+ function modifier(strings,...values){
+   const m=strings.reduce((prev ,current)=>{
+    return prev+current+ (values.length ? "Mr "+values.shift() : " ")
+
+   },"")
+  return m;
+ }
+
+
+ console.log(modifier`We have ${player1} and ${player2} in our cricket team`);
+
+ /*========================Set and WeakSet============================*/
+
+ function log(anything){
+  return console.log(anything);
+ }
+
+ let myarray=[]; //literal syntex
+ let myarray= new Array(); //constructor syntex
